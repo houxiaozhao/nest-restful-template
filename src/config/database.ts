@@ -1,5 +1,5 @@
 export default {
-  uri: 'mongodb://127.0.0.1:27017/nest',
+  uri: process.env.MONGO_URL,
   options: {
     useNewUrlParser: true,
     useFindAndModify: false,
