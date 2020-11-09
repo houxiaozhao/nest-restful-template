@@ -5,15 +5,17 @@ import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { TransformInterceptor } from './common/interceptor/transform.interceptor';
 import { ErrorsInterceptor } from './common/interceptor/exception.interceptor';
 import { Logger, ValidationPipe } from '@nestjs/common';
+import * as csurf from 'csurf';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config = app.get('ConfigService');
-
+  app.enableCors();
   app.useGlobalFilters(new HttpExceptionFilter()); // 异常过滤器
   app.useGlobalInterceptors(new TransformInterceptor()); // 请求成功拦截器
   app.useGlobalInterceptors(new ErrorsInterceptor()); // 异常拦截器
   app.useGlobalPipes(new ValidationPipe());
+  app.use(csurf());
 
   if (config.get('common.node_env') === 'dev') {
     const swaggerOptions = new DocumentBuilder()

@@ -31,7 +31,7 @@ nestjs-config 管理配置文件
 - [x] 统一返回结构
 - [x] 自定义user装饰器 src/common/decorator/user.decorator
 - [x] mongo objectid 示例管道
-- [ ] 跨域处理
+- [x] 跨域处理
 - [ ] 文件上传示例
 - [ ] redis缓存
 - [ ] 异常发送邮件提醒
