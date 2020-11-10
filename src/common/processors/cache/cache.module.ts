@@ -18,6 +18,6 @@ import { CacheService } from './cache.service';
     }),
   ],
   providers: [CacheConfigService, CacheService],
-  exports: [CacheService],
+  exports: [CacheService, CacheModule],
 })
 export class CacheModule {}

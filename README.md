@@ -21,6 +21,18 @@ nestjs-config 管理配置文件
 /env/
 /src/config/
 ```
+## Redis 缓存基本用法
+```
+// controller
+@HttpCache(ARTICLE, 60)
+@UseInterceptors(HttpCacheInterceptor)
+
+// module
+import { CacheModule } from 'src/common/processors/cache/cache.module';
+@Module({
+  imports: [CacheModule]
+})
+```
 
 ## 功能
 
@@ -33,7 +45,7 @@ nestjs-config 管理配置文件
 - [x] mongo objectid 示例管道
 - [x] 跨域处理
 - [ ] 文件上传示例
-- [ ] redis缓存
+- [x] redis缓存
 - [ ] 异常发送邮件提醒
 
 
